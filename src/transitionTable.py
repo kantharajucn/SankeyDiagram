@@ -11,7 +11,8 @@ import os
 reader = csv.reader(open('../output/transition.csv'))
 
 '''Create the HTML file for output'''
-os.remove('../sankey/html/transition.html')
+if os.path.exists(os.path.join(os.pardir+"/sankey/html", 'transition.html')):
+    os.remove('../sankey/html/transition.html')
 htmlfile = open('../sankey/html/transition.html',"w")
 
 '''Initialize rownum variable'''
