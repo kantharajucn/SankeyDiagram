@@ -20,7 +20,6 @@ def getTransitions(aFile,shipmentName):
         reader = csv.DictReader(readcsvfile)
         values  = shipClusters.get(shipmentName)
         for eachCluster in values:
-            print(eachCluster)
             myTransitions[str(eachCluster)].append(reader.fieldnames)
 
 def writeTransitions(htmlfile):
@@ -62,7 +61,8 @@ def writeTransitions(htmlfile):
     htmlfile.write('</table>')
 
 '''Calling Functions'''
-os.remove('../sankey/html/attribute.html')
+if os.path.exists(os.path.join(os.pardir+"/sankey/html", 'attribute.html')):
+    os.remove('../sankey/html/attribute.html')
 htmlfile = open('../sankey/html/attribute.html',"w")
 shipClusters['shipment_0'] = shipment_0
 shipClusters['shipment_1'] = shipment_1
