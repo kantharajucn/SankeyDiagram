@@ -9,7 +9,8 @@ import randomColor
 from attributesUsed import myTransitions
 
 '''Initialization'''
-os .remove('../sankey/html/sankey.html')
+if os.path.exists(os.path.join(os.pardir+"/sankey/html", 'sankey.html')):
+    os .remove('../sankey/html/sankey.html')
 sankeyfile = open('../sankey/html/sankey.html',"w")
 stacks = []
 colourDict = {}
